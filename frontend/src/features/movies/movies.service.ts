@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
-import { ApiService } from '../shared/api.service';
-import { Movie } from '../shared/models/movie.model';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ApiService } from '../../shared/services/api.service';
+import { Movie } from '../../shared/models/movie.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
 
-  constructor(private api: ApiService) {}
+  api = inject(ApiService)
 
   getMovies(): Observable<Movie[]> {
     return this.api.get<Movie[]>('movies/');

@@ -1,11 +1,15 @@
+import { CommonModule } from '@angular/common';
+import { Movie } from '../../../shared/models/movie.model';
 import { MoviesService } from '../movies.service';
-import { Movie } from './../../shared/models/movie.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css']
+  styleUrls: ['./movie-list.component.css'],
+  standalone: true,
+  imports: [CommonModule],
+  providers: [MoviesService]
 })
 export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
