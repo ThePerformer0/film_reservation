@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Movie } from '../../../shared/models/movie.model';
-import { MoviesService } from '../movies.service';
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../service/movies.service';
 
 @Component({
   selector: 'app-movie-list',
