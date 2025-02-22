@@ -1,5 +1,11 @@
-<div *ngFor="let movie of movies" class="movie-card">
-  <h2>{{ movie.title }}</h2>
-  <p>{{ movie.description }}</p>
-  <img [src]="movie.poster_image" alt="{{ movie.title }}" />
+<div class="p-grid p-m-4">
+  <div *ngFor="let movie of movies" class="p-col-12 p-md-6 p-lg-4">
+    <p-card [header]="movie.title" [subheader]="movie.genre">
+      <img [src]="movie.poster_image" [alt]="movie.title" style="width: 100%; height: auto;" />
+      <p>{{ movie.description }}</p>
+      <ng-template pTemplate="footer">
+        <a onclick="movieSlected(movie)" class="p-button p-button-primary">Voir les séances</a>
+      </ng-template>
+    </p-card>
+  </div>
 </div>
