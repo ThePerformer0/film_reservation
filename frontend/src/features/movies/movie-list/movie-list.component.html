@@ -1,11 +1,28 @@
-<div class="p-grid p-m-4">
-  <div *ngFor="let movie of movies" class="p-col-12 p-md-6 p-lg-4">
-    <p-card [header]="movie.title" [subheader]="movie.genre">
-      <img [src]="movie.poster_image" [alt]="movie.title" style="width: 100%; height: auto;" />
-      <p>{{ movie.description }}</p>
-      <ng-template pTemplate="footer">
-        <a onclick="movieSlected(movie)" class="p-button p-button-primary">Voir les séances</a>
-      </ng-template>
-    </p-card>
+<div class="grid grid-cols-1 gap-6 p-4 sm:grid-cols-2 lg:grid-cols-3">
+  <div
+    *ngFor="let movie of movies"
+    (click)="movieSelected(movie)"
+    class="bg-white rounded-lg shadow-md cursor-pointer hover:shadow-xl transition transform hover:scale-105"
+  >
+    <img
+      [src]="movie.poster_image"
+      [alt]="movie.title"
+      class="w-full h-56 object-cover"
+    />
+    <div class="p-4">
+      <h3 class="text-2xl font-bold text-red-600">{{ movie.title }}</h3>
+      <p class="text-sm text-gray-500">{{ movie.genre }}</p>
+      <p class="mt-2 text-gray-700">{{ movie.description }}</p>
+      <div class="mt-4">
+        <!-- Le clic sur ce bouton n'empêchera pas le clic sur la carte grâce à stopPropagation() -->
+        <button
+          class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+          (click)="movieSelected(movie); $event.stopPropagation()"
+        >
+          Voir les détails
+        </button>
+      </div>
+    </div>
   </div>
 </div>
+
