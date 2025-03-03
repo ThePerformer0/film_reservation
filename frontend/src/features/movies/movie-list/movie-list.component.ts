@@ -22,11 +22,13 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
     this.moviesService.getMovies().subscribe((data) => {
       this.movies = data;
+      console.log(data)
     });
   }
 
   movieSelected(movie: Movie) {
-    this.router.navigate(['/movies', movie.id]);
+    console.log('Film sélectionné :', movie);
+    this.router.navigate(['movie', movie.id]);
   }
 
 }

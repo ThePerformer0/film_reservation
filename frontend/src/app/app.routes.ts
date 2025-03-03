@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
-import { MovieListComponent } from '../features/movies/movie-list/movie-list.component';
+import { HomeComponent } from '../blocks/home/home.component';
+import { MovieDetailComponent } from '../features/movies/movie-detail/movie-detail.component';
 
 export const routes: Routes = [
-  { path: 'home', component: MovieListComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'movie/:id', component: MovieDetailComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

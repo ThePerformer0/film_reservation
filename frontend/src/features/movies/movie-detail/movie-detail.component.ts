@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../service/movies.service';
 import { Movie } from '../../../shared/models/movie.model';
@@ -12,7 +12,8 @@ import { Movie } from '../../../shared/models/movie.model';
   imports: [CommonModule],
 })
 export class MovieDetailComponent implements OnInit {
-  movie: Movie | undefined;
+  @Input() movie: Movie | undefined;
+  @Input() isScheduled: boolean | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,5 +25,9 @@ export class MovieDetailComponent implements OnInit {
     this.moviesService.getMovie(id).subscribe((data) => {
       this.movie = data;
     });
+  }
+
+  reserveSession(movieId: number) {
+    console.log('Réservation pour le film ID :', movieId);
   }
 }
