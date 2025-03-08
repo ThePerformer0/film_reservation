@@ -12,4 +12,35 @@
 <body>
   <app-root></app-root>
 </body>
+<script>
+  // Petit script pour basculer entre tarifs Normaux et Réduits
+  function showTarifs(type) {
+    const tabNormal = document.getElementById('tab-normal');
+    const tabReduit = document.getElementById('tab-reduit');
+    const tarifsNormaux = document.getElementById('tarifs-normaux');
+    const tarifsReduits = document.getElementById('tarifs-reduits');
+
+    if (type === 'normaux') {
+      tabNormal.classList.add('border-red-600', 'text-red-600');
+      tabNormal.classList.remove('text-gray-600', 'border-transparent');
+      tabReduit.classList.remove('border-red-600', 'text-red-600');
+      tabReduit.classList.add('text-gray-600', 'border-transparent');
+
+      tarifsNormaux.classList.remove('hidden');
+      tarifsReduits.classList.add('hidden');
+    } else {
+      tabReduit.classList.add('border-red-600', 'text-red-600');
+      tabReduit.classList.remove('text-gray-600', 'border-transparent');
+      tabNormal.classList.remove('border-red-600', 'text-red-600');
+      tabNormal.classList.add('text-gray-600', 'border-transparent');
+
+      tarifsNormaux.classList.add('hidden');
+      tarifsReduits.classList.remove('hidden');
+    }
+  }
+
+  // Sélection par défaut
+  showTarifs('normaux');
+</script>
+
 </html>

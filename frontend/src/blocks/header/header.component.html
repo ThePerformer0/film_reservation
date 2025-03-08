@@ -1,10 +1,14 @@
+<!-- filepath: /c:/Users/user/Desktop/film_reservation/frontend/src/blocks/header/header.component.html -->
 <nav
   class="bg-red-600 dark:bg-red-900 fixed w-full z-20 top-0 start-0 border-b border-red-300 dark:border-red-700"
 >
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
-    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a
+      routerLink="/"
+      class="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer"
+    >
       <img
         src="https://flowbite.com/docs/images/logo.svg"
         class="h-8"
@@ -18,14 +22,14 @@
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <button
         type="button"
-        class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+        class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800 cursor-pointer"
       >
         Réserver
       </button>
       <button
         data-collapse-toggle="navbar-sticky"
         type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 cursor-pointer"
         aria-controls="navbar-sticky"
         aria-expanded="false"
       >
@@ -56,37 +60,41 @@
       >
         <li>
           <a
-            href="#"
-            class="block py-2 px-3 text-white bg-red-700 rounded-sm md:bg-transparent md:text-red-100 md:p-0 md:dark:text-red-300"
-            aria-current="page"
+            routerLink="/"
+            routerLinkActive="active"
+            class="block py-2 px-3 text-white rounded-sm hover:bg-red-700 md:hover:bg-transparent md:hover:text-red-300 md:p-0 cursor-pointer"
             >Accueil</a
           >
         </li>
         <li>
           <a
-            href="#"
-            class="block py-2 px-3 text-white rounded-sm hover:bg-red-700 md:hover:bg-transparent md:hover:text-red-300 md:p-0"
+            routerLink="/movies"
+            routerLinkActive="active"
+            class="block py-2 px-3 text-white rounded-sm hover:bg-red-700 md:hover:bg-transparent md:hover:text-red-300 md:p-0 cursor-pointer"
             >Films</a
           >
         </li>
         <li>
           <a
-            href="#"
-            class="block py-2 px-3 text-white rounded-sm hover:bg-red-700 md:hover:bg-transparent md:hover:text-red-300 md:p-0"
+            routerLink="/screenings"
+            routerLinkActive="active"
+            class="block py-2 px-3 text-white rounded-sm hover:bg-red-700 md:hover:bg-transparent md:hover:text-red-300 md:p-0 cursor-pointer"
             >Projections</a
           >
         </li>
         <li>
           <a
-            href="#"
-            class="block py-2 px-3 text-white rounded-sm hover:bg-red-700 md:hover:bg-transparent md:hover:text-red-300 md:p-0"
+            routerLink="/bookings"
+            routerLinkActive="active"
+            class="block py-2 px-3 text-white rounded-sm hover:bg-red-700 md:hover:bg-transparent md:hover:text-red-300 md:p-0 cursor-pointer"
             >Réservations</a
           >
         </li>
         <li>
           <a
-            href="#"
-            class="block py-2 px-3 text-white rounded-sm hover:bg-red-700 md:hover:bg-transparent md:hover:text-red-300 md:p-0"
+            routerLink="/contact"
+            routerLinkActive="active"
+            class="block py-2 px-3 text-white rounded-sm hover:bg-red-700 md:hover:bg-transparent md:hover:text-red-300 md:p-0 cursor-pointer"
             >Contacts</a
           >
         </li>

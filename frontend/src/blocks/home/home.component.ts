@@ -1,18 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieListComponent } from "../../features/movies/movie-list/movie-list.component";
+import { CommonModule } from '@angular/common';
+import { MovieListLimitedComponent } from "../../features/movies/movie-list-limited/movie-list-limited.component";
 
 @Component({
   standalone: true,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [MovieListComponent, MovieListComponent]
+  imports: [
+    CommonModule,
+    MovieListLimitedComponent
+],
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+  }
+
+  subscribeToNewsletter(event: Event): void {
+    event.preventDefault();
+    alert('Merci pour votre inscription à la newsletter !');
   }
 
 }

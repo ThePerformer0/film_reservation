@@ -11,5 +11,5 @@ import { FooterComponent } from '../blocks/footer/footer.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'CinéResa';
+  title = 'O-Ciné';
 }

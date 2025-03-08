@@ -7,4 +7,5 @@ router.register(r'screenings', ScreeningViewSet, basename='screening')
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('screenings/by_movie/', ScreeningViewSet.as_view({'get': 'by_movie'}), name='screenings-by-movie'),
 ]

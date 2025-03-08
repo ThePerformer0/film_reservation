@@ -16,8 +16,7 @@ import { Router } from '@angular/router';
 export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
   router = inject(Router);
-
-  constructor(private moviesService: MoviesService) { }
+  moviesService =  inject(MoviesService);
 
   ngOnInit(): void {
     this.moviesService.getMovies().subscribe((data) => {

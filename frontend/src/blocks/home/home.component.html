@@ -1,70 +1,182 @@
 <!-- Hero Section -->
 <section class="relative">
-  <div class="relative h-96 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/1600x900/?cinema');">
+  <div
+    class="relative h-96 bg-cover bg-center"
+    style="background-image: url('https://source.unsplash.com/1600x900/?cinema');"
+  >
     <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center text-center text-white"
+    >
       <h1 class="text-4xl font-bold mb-4">Bienvenue sur O-Ciné</h1>
-      <p class="mb-6">Découvrez les films du moment et réservez vos billets en quelques clics !</p>
-      <a href="#films" class="bg-red-700 hover:bg-red-800 text-white font-medium py-2 px-4 rounded">Voir les films</a>
+      <p class="mb-6">
+        Découvrez les films du moment et réservez vos billets en quelques clics !
+      </p>
+      <a
+        href="#films"
+        class="bg-red-700 hover:bg-red-800 text-white font-medium py-2 px-4 rounded"
+      >
+        Voir les films
+      </a>
     </div>
   </div>
 </section>
+
+<hr class="my-8 border-red-600 border-2">
 
 <!-- Section Films à l'affiche -->
-<section id="films" class="py-12 bg-gray-50">
+<section id="films" class="py-12 mr-8 ml-8">
   <div class="max-w-screen-xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center text-red-600 mb-8">Films à l'affiche</h2>
-    <app-movie-list></app-movie-list>
+    <h2 class="text-3xl font-bold text-center text-red-600 mb-8">
+      Films à l'affiche
+    </h2>
+    <app-movie-list-limited></app-movie-list-limited>
   </div>
 </section>
 
-<!-- Section Séances (ou Promotions/Actualités) -->
-<section id="screenings" class="py-12 bg-white">
-  <div class="max-w-screen-xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center text-red-600 mb-8">Séances à venir</h2>
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Exemple de carte de séance -->
-      <div class="bg-red-50 rounded-lg shadow-md p-4 hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold text-red-700">Film en séance</h3>
-        <p class="text-sm text-gray-600">Horaires: 14:00 - 16:30</p>
-        <a href="screening-details.html" class="mt-2 inline-block bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Réserver</a>
-      </div>
-      <div class="bg-red-50 rounded-lg shadow-md p-4 hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold text-red-700">Film en séance</h3>
-        <p class="text-sm text-gray-600">Horaires: 14:00 - 16:30</p>
-        <a href="screening-details.html" class="mt-2 inline-block bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Réserver</a>
-      </div>
-      <div class="bg-red-50 rounded-lg shadow-md p-4 hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold text-red-700">Film en séance</h3>
-        <p class="text-sm text-gray-600">Horaires: 14:00 - 16:30</p>
-        <a href="screening-details.html" class="mt-2 inline-block bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Réserver</a>
-      </div>
-      <div class="bg-red-50 rounded-lg shadow-md p-4 hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold text-red-700">Film en séance</h3>
-        <p class="text-sm text-gray-600">Horaires: 14:00 - 16:30</p>
-        <a href="screening-details.html" class="mt-2 inline-block bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">Réserver</a>
-      </div>
+<hr class="my-8 border-red-600 border-2">
+
+<!-- Section Tarifs -->
+<section class="py-12 mx-8">
+  <div class="w-full md:w-[70%] mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-red-600 mb-8">Tarifs</h2>
+    <div class="flex items-center justify-center space-x-6 mb-4">
+      <!-- Onglet Normaux -->
+      <button
+        id="tab-normal"
+        class="text-red-600 font-semibold border-b-2 border-red-600 px-2 pb-1 focus:outline-none"
+        onclick="showTarifs('normaux')"
+      >
+        Normaux
+      </button>
+      <!-- Onglet Réduits -->
+      <button
+        id="tab-reduit"
+        class="text-gray-600 font-semibold border-b-2 border-transparent px-2 pb-1 hover:text-red-600 focus:outline-none"
+        onclick="showTarifs('reduits')"
+      >
+        Réduits*
+      </button>
+    </div>
+
+    <!-- Tableau des tarifs Normaux -->
+    <div
+      id="tarifs-normaux"
+      class="bg-gray-100 p-6 rounded-lg shadow-md text-gray-800 font-bold"
+    >
+      <table class="w-full">
+        <tbody>
+          <tr class="border-b border-gray-300">
+            <td class="py-2">Adulte</td>
+            <td class="py-2 text-right">1 500 FCFA</td>
+          </tr>
+          <tr class="border-b border-gray-300">
+            <td class="py-2">Adulte 3D</td>
+            <td class="py-2 text-right">2 000 FCFA</td>
+          </tr>
+          <tr>
+            <td class="py-2">Première</td>
+            <td class="py-2 text-right">5 000 FCFA</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-sm text-gray-500 mt-2 font-normal">
+        * Tarifs valables pour les personnes de 12 ans et plus
+      </p>
+    </div>
+
+    <!-- Tableau des tarifs Réduits (caché par défaut) -->
+    <div
+      id="tarifs-reduits"
+      class="bg-gray-100 p-6 rounded-lg shadow-md text-gray-800 font-bold hidden"
+    >
+      <table class="w-full">
+        <tbody>
+          <tr class="border-b border-gray-300">
+            <td class="py-2">Enfant / Étudiant</td>
+            <td class="py-2 text-right">500 FCFA</td>
+          </tr>
+          <tr class="border-b border-gray-300">
+            <td class="py-2">Enfant / Étudiant 3D</td>
+            <td class="py-2 text-right">1 500 FCFA</td>
+          </tr>
+          <tr>
+            <td class="py-2">Première</td>
+            <td class="py-2 text-right">1 500 FCFA</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-sm text-gray-500 mt-2 font-normal">
+        * Réservés aux enfants de moins de 12 ans et aux étudiants sur présentation
+        d'une carte
+      </p>
     </div>
   </div>
 </section>
 
+<hr class="my-8 border-red-600 border-2">
+
+<!-- Section Témoignages -->
 <section class="py-12 bg-gray-100">
-  <div class="max-w-screen-xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center text-red-600 mb-8">Ce que disent nos clients</h2>
+  <div class="max-w-screen-xl px-4 mx-auto">
+    <h2 class="text-3xl font-bold text-center text-red-600 mb-8">
+      Ce que disent nos clients
+    </h2>
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <!-- Exemple de carte témoignage -->
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <p class="text-gray-700 italic">"Une expérience incroyable ! Réserver mes billets n'a jamais été aussi simple."</p>
+        <p class="text-gray-700 italic">
+          « Une expérience incroyable ! Réserver mes billets n'a jamais été aussi
+          simple. »
+        </p>
         <h4 class="mt-4 font-bold text-red-600">Jean Dupont</h4>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <p class="text-gray-700 italic">"Une expérience incroyable ! Réserver mes billets n'a jamais été aussi simple."</p>
-        <h4 class="mt-4 font-bold text-red-600">Jean Dupont</h4>
+        <p class="text-gray-700 italic">
+          « Un large choix de films et un service de qualité. J’adore O-Ciné ! »
+        </p>
+        <h4 class="mt-4 font-bold text-red-600">Marie Moreau</h4>
       </div>
       <div class="bg-white p-6 rounded-lg shadow-md">
-        <p class="text-gray-700 italic">"Une expérience incroyable ! Réserver mes billets n'a jamais été aussi simple."</p>
-        <h4 class="mt-4 font-bold text-red-600">Jean Dupont</h4>
+        <p class="text-gray-700 italic">
+          « Je recommande vivement, surtout pour la facilité d’utilisation du site. »
+        </p>
+        <h4 class="mt-4 font-bold text-red-600">Ali Koné</h4>
       </div>
     </div>
   </div>
 </section>
+
+<hr class="my-8 border-red-600 border-2">
+
+<!-- Section Newsletter -->
+<section class="py-12 bg-gray-100">
+  <div class="max-w-screen-xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-red-600 mb-6">
+      Inscrivez-vous à la Newsletter
+    </h2>
+    <div
+      class="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto flex flex-col space-y-4"
+    >
+      <p class="text-gray-700">
+        Restez informé des dernières sorties, des offres spéciales et des
+        événements à ne pas manquer !
+      </p>
+      <form (submit)="subscribeToNewsletter($event)">
+        <input
+          type="email"
+          placeholder="Votre adresse e-mail"
+          class="border border-gray-300 p-2 rounded w-full focus:outline-none focus:border-red-600"
+          required
+        />
+        <button
+          type="submit"
+          class="bg-red-600 text-white mt-3 py-2 px-4 rounded hover:bg-red-700 w-full"
+        >
+          S'inscrire
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+

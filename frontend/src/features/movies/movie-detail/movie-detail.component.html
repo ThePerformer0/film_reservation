@@ -1,11 +1,18 @@
 <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+  <button
+    (click)="goBack()"
+    class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition mb-4"
+  >
+    Retour
+  </button>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <!-- Image de l'affiche du film -->
     <div>
       <img
         [src]="movie?.poster_image"
         [alt]="movie?.title"
-        class="w-full h-auto rounded-lg shadow-md">
+        class="w-full h-full object-cover rounded-lg shadow-md"
+      />
     </div>
 
     <!-- Détails du film -->
@@ -13,7 +20,24 @@
       <div>
         <h1 class="text-3xl font-bold text-gray-800">{{ movie?.title }}</h1>
         <p class="text-sm text-gray-600 mt-2">Genre : {{ movie?.genre }}</p>
+        <p class="text-sm text-gray-600 mt-2">
+          Date de sortie : {{ movie?.release_date | date : "dd-MM-yyyy" }}
+        </p>
+        <p class="text-sm text-gray-600 mt-2">Durée : {{ movie?.duration }}</p>
         <p class="mt-4 text-gray-700">{{ movie?.description }}</p>
+      </div>
+
+      <!-- Vidéo YouTube du trailer -->
+      <div class="mt-6">
+        <iframe
+          *ngIf="movie?.trailer_url"
+          [src]="movie?.trailer_url! | youtubeUrl | safe"
+          width="100%"
+          height="315"
+          frameborder="0"
+          allowfullscreen
+        >
+        </iframe>
       </div>
 
       <!-- Bouton de réservation -->
@@ -21,10 +45,31 @@
         <button
           *ngIf="isScheduled"
           (click)="reserveSession(movie!.id)"
-          class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+          class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
+        >
           Réserver une séance
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- Projections programmées -->
+  <div class="mt-8">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">
+      Horaires de projections
+    </h2>
+    <div *ngIf="screenings.length === 0" class="text-gray-700">
+      Aucune projection n'a été programmée pour ce film.
+    </div>
+    <div *ngFor="let screening of screenings" class="mb-4">
+      <p class="text-gray-700">
+        <span class="font-medium">Date : </span>
+        <span [appFormatDate]="screening.start_time"></span>
+        <span class="font-medium"> | Heure : </span>
+        <span [appFormatTime]="screening.start_time"></span>
+        <span class="font-medium"> | Places restantes : </span>
+        {{ screening.room_capacity }}
+      </p>
     </div>
   </div>
 </div>

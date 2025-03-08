@@ -1,0 +1,23 @@
+<section id="screenings" class="py-12 bg-white">
+  <div class="max-w-screen-xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-red-600 mb-8">Séances à venir</h2>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Affichage des projections -->
+      <div *ngFor="let screening of screenings" class="bg-red-50 rounded-lg shadow-md p-4 hover:shadow-xl transition">
+        <img [src]="screening.movie.poster_image" [alt]="screening.movie.title" class="w-full h-48 object-cover rounded-lg mb-4">
+        <h3 class="text-xl font-semibold text-red-700">{{ screening.movie.title }}</h3>
+        <p class="text-sm text-gray-600">
+          <span class="font-medium">Horaires : </span> <span [appFormatDate]="screening.start_time"></span> - <span [appFormatTime]="screening.start_time"></span>
+        </p>
+        <p class="text-sm text-gray-600">
+          <span class="font-medium">Places restantes : </span> {{ screening.room_capacity }}
+        </p>
+        <a
+          href="/reservation/{{screening.id}}"
+          class="mt-4 inline-block bg-red-600 text-white px-3 py-2 rounded hover:bg-red-700">
+          Réserver
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
